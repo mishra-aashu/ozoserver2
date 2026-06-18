@@ -23,8 +23,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const provider = (req.query.provider as string || 'bigbasket').toLowerCase();
 
   if (!query || typeof query !== 'string') {
-    return res.status(400).json({
-      error: 'Missing query parameter. Please provide "q" or "slug" (e.g. ?q=maggi)'
+    return res.status(200).json({
+      status: "online",
+      message: "Grocery API Gateway is active",
+      providers: ["bigbasket", "zepto"],
+      usage: {
+        endpoint: "/api/search?q=<product_name>&provider=<bigbasket|zepto>",
+        example: "/api/search?q=milk&provider=zepto"
+      }
     });
   }
 
