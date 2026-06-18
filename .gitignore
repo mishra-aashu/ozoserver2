@@ -12,5 +12,6 @@ dist
 test_handler.js
 !package.json
 !tsconfig.json
+!vercel.json
 
 *.csv
