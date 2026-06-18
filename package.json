@@ -1,0 +1,17 @@
+{
+  "name": "bigbasket-search-api",
+  "version": "1.0.0",
+  "description": "Vercel serverless API to search products from BigBasket",
+  "main": "api/search.ts",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@vercel/node": "^3.0.7",
+    "typescript": "^5.2.2"
+  }
+}

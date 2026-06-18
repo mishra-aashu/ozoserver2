@@ -1,0 +1,14 @@
+node_modules
+dist
+.vercel
+*.log
+*.tmp
+.env
+
+# Ignore all python and temporary test files
+*.py
+*.html
+*.json
+test_handler.js
+!package.json
+!tsconfig.json
