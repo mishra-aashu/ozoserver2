@@ -12,3 +12,5 @@ dist
 test_handler.js
 !package.json
 !tsconfig.json
+
+*.csv
