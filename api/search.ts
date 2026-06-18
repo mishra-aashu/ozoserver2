@@ -145,7 +145,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         timeout: 10000
       });
 
-      console.log('Swiggy response data snippet:', JSON.stringify(response.data).substring(0, 1000));
+      console.log('Swiggy response status:', response.status);
+      console.log('Swiggy response data snippet:', JSON.stringify(response.data || '').substring(0, 1000));
+
+      if (response.status === 202 || !response.data || Object.keys(response.data).length === 0) {
+        return res.status(202).json({
+          success: false,
+          error: 'WAF Challenge Triggered',
+          message: 'Swiggy Instamart returned a WAF challenge (202) or empty response. Please update your SWIGGY_COOKIE.'
+        });
+      }
 
       const cards = response.data?.data?.cards || [];
       const mappedProducts: any[] = [];
